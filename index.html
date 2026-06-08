@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Flashcard Digital</title>
+    <style>
+        /* Configurações Gerais da Página */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f2f5;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        /* Container do Flashcard (Cria o efeito 3D) */
+        .flashcard-container {
+            width: 300px;
+            height: 400px;
+            perspective: 1000px; /* Necessário para o efeito 3D de giro */
+        }
+
+        /* O Cartão em si (Frente e Verso juntos) */
+        .flashcard {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.6s ease;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border-radius: 15px;
+        }
+
+        /* Efeito de girar ao passar o mouse */
+        .flashcard-container:hover .flashcard {
+            transform: rotateY(180deg);
+        }
+
+        /* Estilo comum para as duas faces */
+        .face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden; /* Esconde a parte de trás enquanto gira */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            box-sizing: border-box;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        /* Face da Frente */
+        .frente {
+            background-color: #ffffff;
+            color: #333;
+            border: 2px solid #4a90e2;
+        }
+
+        .frente img {
+            width: 120px;
+            height: 120px;
+            margin-bottom: 20px;
+            object-fit: contain;
+        }
+
+        /* Face do Verso */
+        .verso {
+            background-color: #4a90e2;
+            color: white;
+            transform: rotateY(180deg); /* Já começa virado */
+        }
+
+        /* Estilo do Rodapé */
+        footer {
+            margin-top: 40px;
+            color: #666;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Meu Flashcard Digital</h1>
+
+    <div class="flashcard-container">
+        <div class="flashcard">
+            
+            <div class="face frente">
+                <img src="https://cdn-icons-png.flaticon.com/512/919/919827.png" alt="Logo HTML">
+                <h2>O que é uma Tag HTML?</h2>
+                <p style="color: #888; font-size: 0.85rem;">(Passe o mouse para ver a resposta)</p>
+            </div>
+
+            <div class="face verso">
+                <h2>Resposta:</h2>
+                <p>Tags são os blocos de construção do HTML. Elas servem para indicar ao navegador a estrutura e o tipo de conteúdo do site (como títulos, parágrafos ou imagens).</p>
+            </div>
+
+        </div>
+    </div>
+
+    <footer>
+        Desenvolvido por: <strong>[Seu Nome Aqui]</strong>
+    </footer>
+
+</body>
+</html>

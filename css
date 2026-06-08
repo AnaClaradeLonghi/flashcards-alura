@@ -1,0 +1,98 @@
+/* ==========================================
+   CONFIGURAÇÕES GERAIS E LAYOUT
+   ========================================== */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f2f5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 30px;
+}
+
+/* ==========================================
+   ESTRUTURA DO FLASHCARD (EFEITO 3D)
+   ========================================== */
+.flashcard-container {
+    width: 300px;
+    height: 400px;
+    perspective: 1000px; /* Cria a profundidade para o giro 3D */
+}
+
+.flashcard {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1); /* Giro suave */
+    cursor: pointer;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    border-radius: 15px;
+}
+
+/* Faz o cartão girar 180 graus na horizontal ao passar o mouse */
+.flashcard-container:hover .flashcard {
+    transform: rotateY(180deg);
+}
+
+/* ==========================================
+   FACES DO CARTÃO (FRENTE E VERSO)
+   ========================================== */
+.face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden; /* Esconde o verso enquanto a frente aparece (e vice-versa) */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+    box-sizing: border-box;
+    border-radius: 15px;
+    text-align: center;
+}
+
+/* Customização da Frente */
+.frente {
+    background-color: #ffffff;
+    color: #333;
+    border: 2px solid #4a90e2;
+}
+
+.frente img {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 20px;
+    object-fit: contain;
+}
+
+/* Customização do Verso */
+.verso {
+    background-color: #4a90e2;
+    color: #ffffff;
+    transform: rotateY(180deg); /* Começa invertido para revelar no giro */
+}
+
+.verso h2 {
+    margin-top: 0;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+    padding-bottom: 10px;
+    width: 100%;
+}
+
+/* ==========================================
+   RODAPÉ
+   ========================================== */
+footer {
+    margin-top: 40px;
+    color: #666;
+    font-size: 0.9rem;
+}
